@@ -4,3 +4,6 @@ main: me.crazybanana4life.lobbyfly.LobbyFly
 api-version: 1.16
 authors: [CrazyBanana]
 description: This is a plugin where people with the permission have the ability to "/fly" in the lobby!
+commands:
+  fly:
+    description: Use this command to enable/disable fly in your lobby!
