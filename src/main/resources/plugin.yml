@@ -1,0 +1,6 @@
+name: LobbyFly
+version: 1.0.0
+main: me.crazybanana4life.lobbyfly.LobbyFly
+api-version: 1.16
+authors: [CrazyBanana]
+description: This is a plugin where people with the permission have the ability to "/fly" in the lobby!
