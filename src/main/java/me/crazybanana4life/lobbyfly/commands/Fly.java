@@ -1,6 +1,7 @@
 package me.crazybanana4life.lobbyfly.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,6 +11,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+
+import static java.awt.Color.RED;
+import static org.bukkit.ChatColor.GOLD;
 
 public class Fly implements CommandExecutor, Listener {
     // Var
@@ -47,9 +51,21 @@ public class Fly implements CommandExecutor, Listener {
                     if(sender.hasPermission("lobbyfly.use")) {
                         // Code
                         ((Player) sender).setAllowFlight(true);
+                    } else {
+                        // Permission Check
+                        sender.sendMessage(RED + "You don't have " + GOLD + "permission" + RED + " to use that command!");
                     }
+                } else {
+                    // World Check
+                    sender.sendMessage(RED + "You have to be in the " + GOLD + "lobby" + RED + " to use that command!");
                 }
+            } else {
+                // Usage Check
+                sender.sendMessage(RED + "Incorrect Usage! " + GOLD + "/fly");
             }
+        } else {
+            // Player Check
+            sender.sendMessage(RED + "You need to be a " + GOLD + "PLAYER" + RED + " to run that command!");
         }
         return true;
     }
