@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import static java.awt.Color.RED;
-import static org.bukkit.ChatColor.GOLD;
+import static org.bukkit.ChatColor.*;
 
 public class Fly implements CommandExecutor, Listener {
     // Var
@@ -50,7 +50,14 @@ public class Fly implements CommandExecutor, Listener {
                     // Permission Check
                     if(sender.hasPermission("lobbyfly.use")) {
                         // Code
-                        ((Player) sender).setAllowFlight(true);
+                        if(((Player) sender).getAllowFlight() == true) {
+                            sender.sendMessage(AQUA + "Flight " + GREEN + "enabled" + AQUA + "!");
+                            ((Player) sender).setAllowFlight(false);
+                        }
+                        if(((Player) sender).getAllowFlight() == false) {
+                            sender.sendMessage(AQUA + "Flight " + RED + "disabled" + AQUA + "!");
+                            ((Player) sender).setAllowFlight(true);
+                        }
                     } else {
                         // Permission Check
                         sender.sendMessage(RED + "You don't have " + GOLD + "permission" + RED + " to use that command!");

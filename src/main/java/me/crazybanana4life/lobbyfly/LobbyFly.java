@@ -13,5 +13,7 @@ public final class LobbyFly extends JavaPlugin implements Listener {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(fly, this);
+
+        getCommand("fly").setExecutor(fly);
     }
 }
