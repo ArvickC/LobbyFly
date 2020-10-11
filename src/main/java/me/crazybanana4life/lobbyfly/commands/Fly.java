@@ -12,8 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import static java.awt.Color.RED;
-import static org.bukkit.ChatColor.*;
+import org.bukkit.ChatColor.*;
 
 public class Fly implements CommandExecutor, Listener {
     // Var
@@ -46,33 +45,36 @@ public class Fly implements CommandExecutor, Listener {
             // Command Check
             if(args.length == 0 || args == null) {
                 // World Check
-                if(((Player) sender).getWorld() == lobby) {
+                if(((Player) sender).getWorld() == Bukkit.getServer().getWorld("world")) {
                     // Permission Check
                     if(sender.hasPermission("lobbyfly.use")) {
                         // Code
+                        sender.sendMessage(((Player) sender).getWorld().toString());
                         if(((Player) sender).getAllowFlight() == true) {
-                            sender.sendMessage(AQUA + "Flight " + GREEN + "enabled" + AQUA + "!");
+                            sender.sendMessage(ChatColor.AQUA + "Flight " + ChatColor.RED + "disabled" + ChatColor.AQUA + "!");
                             ((Player) sender).setAllowFlight(false);
+                            return true;
                         }
                         if(((Player) sender).getAllowFlight() == false) {
-                            sender.sendMessage(AQUA + "Flight " + RED + "disabled" + AQUA + "!");
+                            sender.sendMessage(ChatColor.AQUA + "Flight " + ChatColor.GREEN + "enabled" + ChatColor.AQUA + "!");
                             ((Player) sender).setAllowFlight(true);
+                            return true;
                         }
                     } else {
                         // Permission Check
-                        sender.sendMessage(RED + "You don't have " + GOLD + "permission" + RED + " to use that command!");
+                        sender.sendMessage(ChatColor.RED + "You don't have " + ChatColor.GOLD + "permission" + ChatColor.RED + " to use that command!");
                     }
                 } else {
                     // World Check
-                    sender.sendMessage(RED + "You have to be in the " + GOLD + "lobby" + RED + " to use that command!");
+                    sender.sendMessage(ChatColor.RED + "You have to be in the " + ChatColor.GOLD + "lobby" + ChatColor.RED + " to use that command!");
                 }
             } else {
                 // Usage Check
-                sender.sendMessage(RED + "Incorrect Usage! " + GOLD + "/fly");
+                sender.sendMessage(ChatColor.RED + "Incorrect Usage! " + ChatColor.GOLD + "/fly");
             }
         } else {
             // Player Check
-            sender.sendMessage(RED + "You need to be a " + GOLD + "PLAYER" + RED + " to run that command!");
+            sender.sendMessage(ChatColor.RED + "You need to be a " + ChatColor.GOLD + "PLAYER" + ChatColor.RED + " to run that command!");
         }
         return true;
     }
