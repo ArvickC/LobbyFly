@@ -1,6 +1,7 @@
 package me.crazybanana4life.lobbyfly;
 
 import me.crazybanana4life.lobbyfly.commands.Fly;
+import me.crazybanana4life.lobbyfly.commands.Lfconfig;
 import me.crazybanana4life.lobbyfly.commands.Lfreload;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -10,6 +11,7 @@ public class LobbyFly extends JavaPlugin implements Listener {
     // Vars
     Fly fly = new Fly(this);
     Lfreload reload = new Lfreload(this);
+    Lfconfig config = new Lfconfig(this);
 
     @Override
     public void onEnable() {
@@ -28,6 +30,7 @@ public class LobbyFly extends JavaPlugin implements Listener {
     public void getCommands() {
         getCommand("fly").setExecutor(fly);
         getCommand("lfreload").setExecutor(reload);
+        getCommand("lfconfig").setExecutor(config);
         Bukkit.getConsoleSender().sendMessage("§c[§6LobbyFly§c] §6Commands§a activated successfully");
     }
 

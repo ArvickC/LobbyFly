@@ -4,8 +4,9 @@ World: 'lobby'
 
 # Permissions;
 # lobbyfly.use - Gives permission to use "/fly" command
-# lobbyfly.admin - Gives permission to use "/lfreload" command
+# lobbyfly.admin - Gives permission to use "/lfreload" and "/lfconfig" command
 
 # Commands;
 # /fly - Used to enable/disable fly
 # /lfreload - Used to reload this plugin
+# /lfconfig - Used to see what world is set in your config
