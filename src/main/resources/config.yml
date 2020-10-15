@@ -1,3 +1,11 @@
 # Set this to your lobby world!
 
 World: 'lobby'
+
+# Permissions;
+# lobbyfly.use - Gives permission to use "/fly" command
+# lobbyfly.admin - Gives permission to use "/lfreload" command
+
+# Commands;
+# /fly - Used to enable/disable fly
+# /lfreload - Used to reload this plugin
