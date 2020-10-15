@@ -1,5 +1,5 @@
 name: LobbyFly
-version: 1.0.1
+version: 1.5
 main: me.crazybanana4life.lobbyfly.LobbyFly
 api-version: 1.16
 authors: [CrazyBanana]
@@ -7,3 +7,5 @@ description: This is a plugin where people with the permission have the ability 
 commands:
   fly:
     description: Use this command to enable/disable fly in your lobby!
+  lfreload:
+    description: Use this command to reload the plugin

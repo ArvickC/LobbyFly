@@ -1,5 +1,6 @@
 package me.crazybanana4life.lobbyfly.commands;
 
+import me.crazybanana4life.lobbyfly.LobbyFly;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -13,10 +14,16 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 import org.bukkit.ChatColor.*;
+import org.bukkit.plugin.Plugin;
 
 public class Fly implements CommandExecutor, Listener {
     // Var
-    World lobby = Bukkit.getServer().getWorld("world");
+    private LobbyFly plugin = null;
+
+    // Constructor
+    public Fly(LobbyFly plugin) {
+        this.plugin = plugin;
+    }
 
     // Events
     @EventHandler
@@ -45,7 +52,7 @@ public class Fly implements CommandExecutor, Listener {
             // Command Check
             if(args.length == 0 || args == null) {
                 // World Check
-                if(((Player) sender).getWorld() == Bukkit.getServer().getWorld("world")) {
+                if(((Player) sender).getWorld() == Bukkit.getServer().getWorld(plugin.getConfig().getString("World"))) {
                     // Permission Check
                     if(sender.hasPermission("lobbyfly.use")) {
                         // Code
