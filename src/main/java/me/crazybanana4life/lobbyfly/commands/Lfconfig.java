@@ -18,7 +18,9 @@ public class Lfconfig implements CommandExecutor {
     // Command
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        sender.sendMessage(ChatColor.GOLD + "Your lobby world is set to: " + ChatColor.AQUA + plugin.getConfig().getString("World"));
+        if(sender.hasPermission("lobbyfly.admin")) {
+            sender.sendMessage(ChatColor.GOLD + "Your lobby world is set to: " + ChatColor.AQUA + plugin.getConfig().getString("World"));
+        }
 
         return false;
     }
