@@ -56,7 +56,6 @@ public class Fly implements CommandExecutor, Listener {
                     // Permission Check
                     if(sender.hasPermission("lobbyfly.use")) {
                         // Code
-                        sender.sendMessage(((Player) sender).getWorld().toString());
                         if(((Player) sender).getAllowFlight() == true) {
                             sender.sendMessage(ChatColor.AQUA + "Flight " + ChatColor.RED + "disabled" + ChatColor.AQUA + "!");
                             ((Player) sender).setAllowFlight(false);
