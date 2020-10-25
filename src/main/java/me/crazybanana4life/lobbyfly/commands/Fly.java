@@ -51,10 +51,10 @@ public class Fly implements CommandExecutor, Listener {
         if(sender instanceof Player) {
             // Command Check
             if(args.length == 0 || args == null) {
-                // World Check
-                if(((Player) sender).getWorld() == Bukkit.getServer().getWorld(plugin.getConfig().getString("World"))) {
+                // World Check (Bypass)
+                if(((Player) sender).getWorld() == Bukkit.getServer().getWorld(plugin.getConfig().getString("World")) || sender.hasPermission("lobbyfly.bypass")) {
                     // Permission Check
-                    if(sender.hasPermission("lobbyfly.use")) {
+                    if(sender.hasPermission("lobbyfly.use") || sender.hasPermission("lobbyfly.bypass")) {
                         // Code
                         if(((Player) sender).getAllowFlight() == true) {
                             sender.sendMessage(ChatColor.AQUA + "Flight " + ChatColor.RED + "disabled" + ChatColor.AQUA + "!");
